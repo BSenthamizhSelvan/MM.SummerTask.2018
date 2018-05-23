@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 img{
 	max-width: 100%;
 	max-height: 100%;
@@ -80,4 +81,88 @@ h4 + p{
 }
 .pool{
 	border-left: 1px dashed #aaa;
+=======
+img{
+	max-width: 100%;
+	max-height: 100%;
+	text-align: center;
+}
+div{
+	padding: 0px 10px 10px 10px;
+}
+h2{
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 22px;
+	font-weight: 700px;
+	color: #888;
+}
+h5{
+	text-transform: uppercase;
+	margin: 5px 0px;
+	font-size: 11px
+
+}
+h3{
+	text-transform: uppercase;
+	margin: 5px 0px;
+	font-size: 18px;
+	font-weight: 700;
+}
+.btn-search{
+	margin-top: -10px;
+}
+.content{
+	top: 25%;
+	left: 10px;
+	right: 10px;
+	position: absolute;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.3);
+	text-align: center;
+}
+.overlay{
+	position:relative;
+}
+.over{
+	color: #fff;
+}
+a:hover{
+	text-decoration: none;
+	color: #006DCC;
+}
+
+h5 a{
+	color: #000;
+}
+h3 a{
+	color: #000;
+}
+a{
+	color: #aaa;
+}
+.heading{
+	font-size: 20px;
+}
+.progress{
+	padding: 0px;
+}
+h4{
+	text-align: center;
+	font-weight: 700;
+	font-size: 18px;
+	padding-top: 40px;
+	color: #888;
+}
+h4 + p{
+	padding: 10px 0px;
+	font-size: 16px;
+}
+.btn-info{
+	padding: 5px 20px;
+	margin: 0px 10px;
+}
+.pool{
+	border-left: 1px dashed #aaa;
+>>>>>>> 279be27d7fa919a82ac9dee465760f703fffab73
 }

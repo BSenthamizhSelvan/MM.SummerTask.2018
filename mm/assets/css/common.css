@@ -1,0 +1,77 @@
+.container-fluid{
+	padding: 0px 50px;
+}
+header {
+    background-image: url("../img/common/cover.jpg");
+    background-size: cover;
+    height: 370px;
+    background-position-x: 50%;
+    position: relative;
+}
+.navbar-fixed-bottom{
+	text-align: center;
+	padding: 6px 0px 0px 0px;
+	background: rgba(0, 0, 0, 0.7);
+	margin-bottom: -6px;
+	border: 0px;
+	z-index: 1000;
+}
+.headerbar{
+	background-color: #fff;
+}
+.lgn{
+	margin-right: 20px;
+	font-size: 12px;
+	font-weight: 700;
+
+}
+.navbar-right{
+	margin-right: 20px;
+	font-size: 12px;
+	font-weight: 700;
+
+}
+body{
+	font-family: 'Source Sans Pro', sans-serif;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#cbccc8)) fixed;
+}
+.btn-search{
+	background: #fff;
+	border: 1px solid #ddd;
+	padding: 7px 17px;
+	color: #aaa;
+	z-index: 100;
+}
+.navbar-nav{
+	padding: 10px;
+}
+.navbar{
+	margin-bottom: 0px;
+}
+.row{
+	background-color: #fff;
+	margin: 0px;
+}
+footer{
+	padding-top: 20px;
+	padding-bottom: 60px;
+	text-align: center;
+	background-color: #111;
+}
+footer a{
+	color: #aaa;
+}
+.navbar-fixed-bottom{
+	text-align: center;
+	padding: 6px 0px 0px 0px;
+	background: rgba(0, 0, 0, 0.7);
+	margin-bottom: -6px;
+	border: 0px;
+	z-index: 1000;
+}
+.navbar-default .navbar-nav>li>a {
+    padding: 15px 40px;
+}
+h3{
+	text-align: center;
+}

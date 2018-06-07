@@ -3,9 +3,7 @@ class User extends CI_Model{
     function __construct() {
         $this->userTbl = 'users';
     }
-    /*
-     * get rows from the users table
-     */
+
     function getRows($params = array()){
         $this->db->select('*');
         $this->db->from($this->userTbl);
@@ -46,13 +44,6 @@ class User extends CI_Model{
      * Insert user information
      */
     public function insert($data = array()) {
-        //add created and modified data if not included
-        if(!array_key_exists("created", $data)){
-            $data['created'] = date("Y-m-d H:i:s");
-        }
-        if(!array_key_exists("modified", $data)){
-            $data['modified'] = date("Y-m-d H:i:s");
-        }
         
         //insert user data to users table
         $insert = $this->db->insert($this->userTbl, $data);

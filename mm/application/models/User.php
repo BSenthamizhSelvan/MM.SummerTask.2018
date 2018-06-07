@@ -4,7 +4,20 @@ class User extends CI_Model{
         $this->userTbl = 'users';
     }
 
-    function getRows($params = array()){
+    public function insert($data = array()) {
+
+        //insert user data to users table
+        $insert = $this->db->insert($this->userTbl, $data);
+        
+        //return the status
+        if($insert){
+            return $this->db->insert_id();;
+        }else{
+            return false;
+        }
+    }
+
+    public function getRows($params = array()){
         $this->db->select('*');
         $this->db->from($this->userTbl);
         
@@ -38,22 +51,6 @@ class User extends CI_Model{
 
         //return fetched data
         return $result;
-    }
-    
-    /*
-     * Insert user information
-     */
-    public function insert($data = array()) {
-        
-        //insert user data to users table
-        $insert = $this->db->insert($this->userTbl, $data);
-        
-        //return the status
-        if($insert){
-            return $this->db->insert_id();;
-        }else{
-            return false;
-        }
     }
 
 }

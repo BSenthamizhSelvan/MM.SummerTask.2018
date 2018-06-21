@@ -1,8 +1,8 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php 
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Article extends CI_Model{
 
-	//For get posts
 
 	public function getRows($id = ""){
         if(!empty($id)){
@@ -14,10 +14,9 @@ class Article extends CI_Model{
         }
     }
 
-    //insert posts
 
     public function insert($data = array()) {
-        $insert = $this->db->insert('article', $data);
+        $insert = $this->db->insert('articles', $data);
         if($insert){
             return $this->db->insert_id();
         }else{
@@ -25,21 +24,19 @@ class Article extends CI_Model{
         }
     }
     
-    // update posts
 
     public function update($data, $id) {
         if(!empty($data) && !empty($id)){
-            $update = $this->db->update('article', $data, array('id'=>$id));
+            $update = $this->db->update('articles', $data, array('id'=>$id));
             return $update?true:false;
         }else{
             return false;
         }
     }
-
-	// delete posts    
+  
 
     public function delete($id){
-        $delete = $this->db->delete('article',array('id'=>$id));
+        $delete = $this->db->delete('articles',array('id'=>$id));
         return $delete?true:false;
     }
 

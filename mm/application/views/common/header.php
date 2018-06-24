@@ -15,23 +15,23 @@
 					<ul class="nav navbar-nav">
 
 						<?php if ($this->session->userdata('isloggedin')) { 
-                            echo '<b>Logged in as:</b> ' . $this->session->userdata('username');
-                            if ($this->session->userdata('privilege')){
-                            	echo ' | ' . "<a href=" . site_url('admin_panel') . ">Admin Panel</a>";
-                            }
-                            echo ' | ' . "<a href=" . site_url('users/logout') . ">Logout</a>";
-                        } else {
-                      ?>  
-                        <li><a id="PERSONAL_PROFILE" href="<?php echo site_url('users/login'); ?>">LOGIN</a></li>
-						<li><a id="PERSONAL_PROFILE" href="<?php echo site_url('users/register'); ?>">SIGNUP</a></li>
-                     <?php } ?>
+							echo '<b>Logged in as:</b> ' . $this->session->userdata('username');
+							if ($this->session->userdata('privilege')){
+								echo ' | ' . "<a href=" . site_url('admin_panel') . ">Admin Panel</a>";
+							}
+							echo ' | ' . "<a href=" . site_url('users/logout') . ">Logout</a>";
+						} else {
+							?>  
+							<li><a id="PERSONAL_PROFILE" href="<?php echo site_url('users/login'); ?>">LOGIN</a></li>
+							<li><a id="PERSONAL_PROFILE" href="<?php echo site_url('users/register'); ?>">SIGNUP</a></li>
+						<?php } ?>
 					</ul>
 					<form class="navbar-form navbar-right" role="search">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Search">
-					</div>
-					<button type="submit" class="btn btn-default btn-search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-				</form>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search">
+						</div>
+						<button type="submit" class="btn btn-default btn-search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+					</form>
 				</div>
 			</nav>
 		</header>
@@ -51,8 +51,6 @@
 			<div id="navbarCollapse1" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li><a id="PERSONAL_PROFILE" href="<?php echo site_url(); ?>">HOME</a></li>
-					<li><a id="PERSONAL_PROFILE" href="#">CATEGORY</a></li>
-					<li><a id="PERSONAL_PROFILE" href="#">AUTHORS</a></li>
 				</ul>
 			</div>
 		</nav>

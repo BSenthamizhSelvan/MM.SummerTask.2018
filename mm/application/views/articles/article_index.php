@@ -1,13 +1,13 @@
 <div class="container-fluid">
-    <?php if(!empty($success_msg)){ ?>
     <div class="col-xs-12">
-        <div class="alert alert-success"><?php echo $success_msg; ?></div>
+        <?php 
+        if(!empty($success_msg)){
+            echo '<div class="alert alert-success">'.$success_msg.'</div>';
+        }elseif(!empty($error_msg)){
+            echo '<div class="alert alert-danger">'.$error_msg.'</div>';
+        }
+        ?>
     </div>
-    <?php }elseif(!empty($error_msg)){ ?>
-    <div class="col-xs-12">
-        <div class="alert alert-danger"><?php echo $error_msg; ?></div>
-    </div>
-    <?php } ?>
     <div class="row">
         <div class="col-xs-12">
             <div class="panel panel-default ">

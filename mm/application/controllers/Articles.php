@@ -20,27 +20,27 @@ class Articles extends CI_Controller {
         }
 
         if($this->session->userdata('success_msg')){
-           $data['success_msg'] = $this->session->userdata('success_msg');
-           $this->session->unset_userdata('success_msg');
-       }
-       if($this->session->userdata('error_msg')){
-           $data['error_msg'] = $this->session->userdata('error_msg');
-           $this->session->unset_userdata('error_msg');
-       }
+         $data['success_msg'] = $this->session->userdata('success_msg');
+         $this->session->unset_userdata('success_msg');
+     }
+     if($this->session->userdata('error_msg')){
+         $data['error_msg'] = $this->session->userdata('error_msg');
+         $this->session->unset_userdata('error_msg');
+     }
 
-       $data['article'] = $this->article->getRows();
-       $data['title'] = 'Article Archive';
-
-
-
-       $this->load->view('admin_common/head', $data);
-       $this->load->view('admin_common/header', $data);
-       $this->load->view('articles/article_index', $data);
-       $this->load->view('admin_common/footer');
-   }
+     $data['article'] = $this->article->getRows();
+     $data['title'] = 'Article Archive';
 
 
-   public function view($id){
+
+     $this->load->view('admin_common/head', $data);
+     $this->load->view('admin_common/header', $data);
+     $this->load->view('articles/article_index', $data);
+     $this->load->view('admin_common/footer');
+ }
+
+
+ public function view($id){
     $data = array();
 
     if (!($this->session->userdata('isloggedin'))) {
@@ -168,6 +168,7 @@ public function edit($id){
             $config['allowed_types'] = 'jpg|jpeg|png|gif';
             $config['file_name'] = $_FILES['picture']['name'];
 
+
             $this->load->library('upload',$config);
             $this->upload->initialize($config);
 
@@ -185,7 +186,6 @@ public function edit($id){
             'title' => $this->input->post('title'),
             'content' => $this->input->post('content'),
             'summary' => $this->input->post('summary'),
-            'date' => date('Y-m-d'),
             'ctg' => $this->input->post('ctg'),
             'reptr_name' => $this->input->post('reptr_name'),
             'modified' => date('Y-m-d H:i:s'),

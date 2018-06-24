@@ -13,12 +13,11 @@ class Users extends CI_Controller
 
     public function register()
     {
-
+        $data = array();
         if (($this->session->userdata('isloggedin'))) {
             redirect(site_url('home'));
         }
         
-        $data = array();
         $userdata = array();
         $data['title'] = 'Registration';
         if($this->input->post('regsubmit'))
@@ -37,7 +36,7 @@ class Users extends CI_Controller
             if($this->form_validation->run() == true){
                 $insert = $this->user->insert($userdata);
                 if($insert){
-                    $this->session->set_flashdata('msg_success','Registration Successful!');
+                    $this->session->set_userdata('success_msg', 'Registration Successful!');
                     redirect('users/login');
                 }else{
                     $data['error_msg'] = 'Some problems occured, please try again.';
@@ -45,8 +44,10 @@ class Users extends CI_Controller
             }
         }
         $data['user'] = $userdata;
-        $this->load->view('common/head');
-        $this->load->view('common/header');
+
+        $this->load->view('common/head', $data);
+        $this->load->view('css/register', $data);
+        $this->load->view('common/header', $data);
         $this->load->view('users/register', $data);
         $this->load->view('common/footer');
 
@@ -54,12 +55,12 @@ class Users extends CI_Controller
 
     public function login()
     {
-
+        $data = array();
         if (($this->session->userdata('isloggedin'))) {
             redirect(site_url('home'));
         }
 
-        $data = array();
+
         if($this->session->userdata('success_msg')){
             $data['success_msg'] = $this->session->userdata('success_msg');
             $this->session->unset_userdata('success_msg');
@@ -89,7 +90,6 @@ class Users extends CI_Controller
                     $this->session->set_userdata('userid',$checkLogin['id']);
                     $this->session->set_userdata('username',$checkLogin['username']);
                     $this->session->set_userdata('privilege',$checkLogin['privilege']);
-                    $this->session->set_flashdata('msg_success','Login Successful!');
                     redirect('home');
 
                 }else{
@@ -97,9 +97,10 @@ class Users extends CI_Controller
                 }
             }
         }
+        $data['title'] = 'Login';
 
-        $this->load->view('common/head');
-        $this->load->view('common/header');
+        $this->load->view('common/head', $data);
+        $this->load->view('common/header', $data);
         $this->load->view('users/login', $data);
         $this->load->view('common/footer');
 

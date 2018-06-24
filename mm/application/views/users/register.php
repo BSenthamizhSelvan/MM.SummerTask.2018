@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container-fluid regist">
     <h2>User Registration</h2>
     <form action="" method="post">
         <div class="form-group">
@@ -19,7 +19,7 @@
           <?php echo form_error('cpassword','<span class="help-block">','</span>'); ?>
         </div>
         <div class="form-group">
-            <input type="submit" name="regsubmit" class="btn-primary" value="Submit"/>
+            <input type="submit" name="regsubmit" class="btn btn-success" value="Submit"/>
         </div>
     </form>
     <p class="footInfo">Already have an account? <a href="<?php echo base_url(); ?>users/login">Login here</a></p>              

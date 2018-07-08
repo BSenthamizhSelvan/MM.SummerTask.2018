@@ -23,7 +23,8 @@
 						<li><a href="<?php echo site_url('articles/add'); ?>">Add Article</a></li>
 						<li><a href="<?php echo site_url('articles'); ?>">View Articles</a></li>
 					</ul>
-					<a href="#">Users</a>
+					<a href="<?php echo site_url('admin_panel/users'); ?>">Users</a>
+					<a href="<?php echo site_url('admin_panel/poll'); ?>">Poll</a>
 					<a href="#commentsSubmenu" data-toggle="collapse" aria-expanded="false">Comments</a>
 					<ul class="collapse list-unstyled" id="commentsSubmenu">
 						<li><a href="#">Article Comments</a></li>
@@ -55,7 +56,7 @@
 
 					<div id="navbarCollapse1" class="collapse navbar-collapse navbar-right">
 						<ul class="nav navbar-nav">
-							<li><a href="<?php echo site_url('home'); ?>">Homepage</a></li>
+							<li><a href="<?php echo site_url(); ?>">Homepage</a></li>
 							<li><a href="<?php echo site_url('users/logout'); ?>">Logout</a></li>
 						</ul>
 					</div>

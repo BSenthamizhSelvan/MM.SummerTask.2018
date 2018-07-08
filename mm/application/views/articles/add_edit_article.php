@@ -32,7 +32,7 @@
             <div class="form-group">
               <label for="ctg">Category : </label>
               <select name="ctg" placeholder="Select Category" value="<?php echo !empty($article['ctg'])?$article['ctg']:''; ?>">
-                <option>Select a Category</option>
+                <option><?php echo $article['ctg']; ?></option>
                 <option value="Interview">Interview</option>
                 <option value="Forum">Forum</option>
                 <option value="Ask a Question">Ask a Question</option>
@@ -41,9 +41,11 @@
               </select>
               <?php echo form_error('Category','<p class="help-block text-danger">','</p>'); ?>
 
-              <label for="reptr_name">Reporter Name : </label>
+              &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+
+              <label for="reptr_name">Writer Name : </label>
               <select name="reptr_name" placeholder="Select Reporter" value="<?php echo !empty($article['reptr_name'])?$article['reptr_name']:''; ?>">
-                <option>Select the Reporter</option>
+                <option><?php echo $article['reptr_name']; ?></option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
@@ -54,7 +56,11 @@
             </div>
             <div class="form-group">
               <label>Picture</label>
-              <input class="form-control" type="file" name="picture" />
+              <input class="form-control" type="file" name="picture" value="<?php echo $article['img']; ?>"> 
+              <div>
+                <br>
+                <img src="<?php echo base_url('assets/img/uploads/') ?><?php echo $article['img']; ?>">
+              </div>
             </div>
             <div>
               <input type="submit" name="submit" class="btn btn-primary" value="Submit">

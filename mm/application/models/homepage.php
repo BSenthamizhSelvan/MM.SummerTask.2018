@@ -22,4 +22,28 @@ class Homepage extends CI_Model{
 		$query = $this->db->get_where('articles', array('id' => $id));
 		return $query->row_array();
 	}
+
+	public function getpoll(){
+
+		$query = $this->db->get_where('poll', array('id' => '1'));
+		return $query->row_array();
+	}
+
+	 public function user_update($data, $id)
+    {
+         $update = $this->db->update('users', $data, array('id'=>$id));
+            return $update?true:false;
+    }
+
+    public function getuser($id)
+    {
+            $query = $this->db->get_where('users', array('id' => $id));
+            return $query->row_array();
+    }
+
+    public function article_update($data, $id)
+    {
+         $update = $this->db->update('articles', $data, array('id'=>$id));
+            return $update?true:false;
+    }
 }

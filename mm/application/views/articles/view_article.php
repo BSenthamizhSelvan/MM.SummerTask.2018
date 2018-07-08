@@ -11,6 +11,22 @@
                     <label>Content:</label>
                     <p><?php echo !empty($article['content'])?$article['content']:''; ?></p>
                 </div>
+                <div class="form-group">
+                    <label>Summary:</label>
+                    <p><?php echo !empty($article['summary'])?$article['summary']:''; ?></p>
+                </div>
+                <div class="form-group">
+                    <label>Category:</label>
+                    <p><?php echo !empty($article['ctg'])?$article['ctg']:''; ?></p>
+                    <label>Writer name:</label>
+                    <p><?php echo !empty($article['reptr_name'])?$article['reptr_name']:''; ?></p>
+                    <label>Last Modified:</label>
+                    <p><?php echo !empty($article['modified'])?$article['modified']:''; ?></p>
+                </div>
+                <div class="form-group">
+                    <label>Image:</label>
+                    <p><img src="<?php echo base_url('assets/img/uploads/') ?><?php echo $article['img']; ?>"></p>
+                </div>
             </div>
         </div>
     </div>

@@ -1,5 +1,4 @@
-
-<div class="container-fluid">
+<div class="container-fluid login">
     <div class="col-xs-12">
         <?php 
         if(!empty($success_msg)){
@@ -20,8 +19,8 @@
           <?php echo form_error('password','<span class="help-block">','</span>'); ?>
       </div>
         <div class="form-group">
-        <input type="submit" name="lgn" class="btn-primary" value="Submit"/>
+        <input type="submit" name="lgn" class="btn btn-info" value="Submit"/>
         </div>
     </form>
-    <p class="footInfo">Don't have an account? <a href="<?php echo base_url(); ?>users/register">Register here</a></p>
+    <p class="footInfo"><strong>Don't have an account? </strong><a href="<?php echo base_url(); ?>users/register">Register here</a></p>
 </div>

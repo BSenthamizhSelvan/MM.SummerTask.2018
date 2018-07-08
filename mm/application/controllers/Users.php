@@ -90,6 +90,7 @@ class Users extends CI_Controller
                     $this->session->set_userdata('userid',$checkLogin['id']);
                     $this->session->set_userdata('username',$checkLogin['username']);
                     $this->session->set_userdata('privilege',$checkLogin['privilege']);
+                    $this->session->set_userdata('vote',$checkLogin['vote']);
                     redirect('home');
 
                 }else{
@@ -100,6 +101,7 @@ class Users extends CI_Controller
         $data['title'] = 'Login';
 
         $this->load->view('common/head', $data);
+        $this->load->view('css/login', $data);
         $this->load->view('common/header', $data);
         $this->load->view('users/login', $data);
         $this->load->view('common/footer');

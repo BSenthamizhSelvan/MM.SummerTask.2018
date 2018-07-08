@@ -19,8 +19,8 @@
           <?php echo form_error('cpassword','<span class="help-block">','</span>'); ?>
         </div>
         <div class="form-group">
-            <input type="submit" name="regsubmit" class="btn btn-success" value="Submit"/>
+            <input type="submit" name="regsubmit" class="btn btn-info" value="Submit"/>
         </div>
     </form>
-    <p class="footInfo">Already have an account? <a href="<?php echo base_url(); ?>users/login">Login here</a></p>              
+    <p class="footInfo"><strong>Already have an account? </strong><a href="<?php echo base_url(); ?>users/login">Login here</a></p>              
 </div>

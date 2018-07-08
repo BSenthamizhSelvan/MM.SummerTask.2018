@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="panel panel-default ">
-                <div class="panel-heading">Articles <a href="<?php echo site_url('articles/add/'); ?>" class="glyphicon glyphicon-plus pull-right" ></a></div>
+                <div class="panel-heading">Articles <a href="<?php echo site_url('articles/add'); ?>" class="glyphicon glyphicon-plus pull-right" ></a></div>
                 <table class="table table-striped">
                     <thead>
                         <tr>

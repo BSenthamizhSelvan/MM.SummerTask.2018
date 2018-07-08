@@ -6,7 +6,7 @@
 	foreach($articles as $article): ?>
 		<div class="col-sm-4 col-xs-12">
 
-			<a href="<?php echo site_url('home/article/'.$article['id']); ?>"><img src="assets/img/uploads/<?php echo $article['img']; ?>"></a>
+			<a href="<?php echo site_url('home/article/'.$article['id']); ?>"><img class="rec_art" src="<?php echo base_url('assets/img/uploads/') ?><?php echo $article['img']; ?>"></a>
 
 			<div>
 				<h5><?php echo $article['ctg']; ?></h5>

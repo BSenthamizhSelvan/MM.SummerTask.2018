@@ -33,7 +33,7 @@ class Article extends CI_Model{
             return false;
         }
     }
-  
+    
 
     public function delete($id){
         $delete = $this->db->delete('articles',array('id'=>$id));

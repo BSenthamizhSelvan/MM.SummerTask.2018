@@ -96,8 +96,10 @@ public function add(){
             $this->upload->initialize($config);
 
             if($this->upload->do_upload('picture')){
+                
                 $uploadData = $this->upload->data();
                 $picture = $uploadData['file_name'];
+
             }else{
                 $picture = '';
             }
@@ -176,10 +178,10 @@ public function edit($id){
                 $uploadData = $this->upload->data();
                 $picture = $uploadData['file_name'];
             }else{
-                $picture = '';
+                $picture = $articleData['img'];
             }
         }else{
-            $picture = '';
+            $picture = $articleData['img'];
         }
 
         $articleData = array(
@@ -235,7 +237,5 @@ public function delete($id){
     }
 
     redirect('/articles');
-
-
 }
 }

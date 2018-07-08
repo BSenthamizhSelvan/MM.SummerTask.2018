@@ -29,9 +29,9 @@ h3{
 	margin-top: -10px;
 }
 .content{
-	top: 25%;
-	left: 10px;
-	right: 10px;
+	top: 30%;
+	left: 20px;
+	right: 20px;
 	position: absolute;
 	color: #fff;
 	background-color: rgba(0, 0, 0, 0.3);
@@ -73,6 +73,11 @@ h4{
 h4 + p{
 	padding: 10px 0px;
 	font-size: 16px;
+	font-family: sans-serif;
+}
+.edit-pick{
+	width: 421.71px;
+	height: 360px;
 }
 .btn-info{
 	padding: 5px 20px;
@@ -80,4 +85,11 @@ h4 + p{
 }
 .pool{
 	border-left: 1px dashed #aaa;
+}
+.btn-pool{
+	padding: 5px 10px;
+}
+.rec_art{
+	width: 570px;
+	height: 260px;
 }

@@ -31,8 +31,8 @@
             </div>
             <div class="form-group">
               <label for="ctg">Category : </label>
-              <select name="ctg" placeholder="Select Category" value="<?php echo !empty($article['ctg'])?$article['ctg']:''; ?>">
-                <option><?php echo $article['ctg']; ?></option>
+              <select name="ctg" placeholder="Select Category" value="">
+                <option><?php echo !empty($article['ctg'])?$article['ctg']:'Select Category'; ?></option>
                 <option value="Interview">Interview</option>
                 <option value="Forum">Forum</option>
                 <option value="Ask a Question">Ask a Question</option>
@@ -44,8 +44,8 @@
               &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
 
               <label for="reptr_name">Writer Name : </label>
-              <select name="reptr_name" placeholder="Select Reporter" value="<?php echo !empty($article['reptr_name'])?$article['reptr_name']:''; ?>">
-                <option><?php echo $article['reptr_name']; ?></option>
+              <select name="reptr_name" placeholder="Select Reporter" value="">
+                <option><?php echo !empty($article['reptr_name'])?$article['reptr_name']:'Select Writer'; ?></option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
@@ -56,10 +56,16 @@
             </div>
             <div class="form-group">
               <label>Picture</label>
-              <input class="form-control" type="file" name="picture" value="<?php echo $article['img']; ?>"> 
+              <input class="form-control" type="file" name="picture" value=""> 
+              <br>
               <div>
                 <br>
-                <img src="<?php echo base_url('assets/img/uploads/') ?><?php echo $article['img']; ?>">
+                <?php if (!empty($article['reptr_name'])) { ?>
+
+                  <img src="<?php echo base_url('assets/img/uploads/') ?><?php echo $article['img']; ?>">
+
+                <?php } ?> 
+
               </div>
             </div>
             <div>

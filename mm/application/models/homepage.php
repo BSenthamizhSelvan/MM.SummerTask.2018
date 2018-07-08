@@ -46,4 +46,14 @@ class Homepage extends CI_Model{
          $update = $this->db->update('articles', $data, array('id'=>$id));
             return $update?true:false;
     }
+
+    public function update_poll($data) 
+    {
+        if(!empty($data)){
+            $update = $this->db->update('poll', $data, array('id'=>'1'));
+            return $update?true:false;
+        }else{
+            return false;
+        }
+    }
 }

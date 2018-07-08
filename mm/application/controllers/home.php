@@ -11,18 +11,59 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		
-		$data['poll']=$this->homepage->getpoll();
+		$data = array();
+		$poll=$this->homepage->getpoll();
+
 		$data['articles']=$this->homepage->latest_articles();
 		$data['pick']=$this->homepage->editors_pick();
 		$data['title'] = 'The news as it should be';
 
-		$this->load->view('common/head',$data);
-		$this->load->view('common/header',$data);
-		$this->load->view('homesite/editors_pick',$data);
-		$this->load->view('homesite/poll',$data);
-		$this->load->view('homesite/latest_articles',$data);
-		$this->load->view('common/footer');
+		$userdata=$this->homepage->getuser($this->session->userdata('userid'));
+
+		if (!$userdata['vote']) {
+			if($this->input->post('submit'))
+			{
+				$this->form_validation->set_rules('poll', 'poll', 'required');
+
+				$option=$this->input->post('poll');
+
+				if($this->form_validation->run() == true){
+
+
+					$userdata['vote']='1';
+					$this->homepage->user_update($userdata,$this->session->userdata('userid'));
+
+					if ($option=='1') {
+						++$poll['count1'];
+					} elseif ($option=='2') {
+						++$poll['count2'];
+					} elseif ($option=='3') {
+						++$poll['count3'];
+					}
+
+					$this->homepage->update_poll($poll);
+				}
+			}
+
+			$data['poll']=$poll;
+
+			$this->load->view('common/head',$data);
+			$this->load->view('common/header',$data);
+			$this->load->view('homesite/editors_pick',$data);
+			$this->load->view('homesite/poll',$data);
+			$this->load->view('homesite/latest_articles',$data);
+			$this->load->view('common/footer');
+		}
+
+		$data['poll']=$poll;
+
+			$this->load->view('common/head',$data);
+			$this->load->view('common/header',$data);
+			$this->load->view('homesite/editors_pick',$data);
+			$this->load->view('homesite/poll_result',$data);
+			$this->load->view('homesite/latest_articles',$data);
+			$this->load->view('common/footer');
+		
 	}
 	
 	public function article($id)
@@ -52,7 +93,7 @@ class Home extends CI_Controller {
 
 	public function pool()
 	{
-		$data['poll']=$this->homepage->getpoll();
+		$poll=$this->homepage->getpoll();
 
 		if($this->input->post('submit'))
 		{
@@ -67,11 +108,11 @@ class Home extends CI_Controller {
 				$this->homepage->user_update($userdata,$this->session->userdata('userid'));
 				
 				if ($option=='1') {
-					++$data['poll']['count1'];
+					++$poll['count1'];
 				} elseif ($option=='2') {
-					++$data['poll']['count2'];
+					++$poll['count2'];
 				} elseif ($option=='3') {
-					++$data['poll']['count3'];
+					++$poll['count3'];
 				}
 			}
 		}

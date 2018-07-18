@@ -143,4 +143,12 @@ a.article, a.article:hover {
 #content.active {
     width: 100%;
 }
-
+#swap1{
+    display:block;
+}
+#swap2{
+    display:none;
+}
+#select{
+    display: none;
+}

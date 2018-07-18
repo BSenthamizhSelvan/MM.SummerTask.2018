@@ -10,7 +10,7 @@
 		?>
 	</div>
 
-	<button type="button" class="btn btn-warning btn-small"><a href="<?php echo site_url('Admin_panel/new_poll'); ?>">Create New Poll</a></button>
+	<a href="<?php echo site_url('Admin_panel/new_poll'); ?>"><button type="button" class="btn btn-warning btn-small">Create New Poll</button></a>
 	<br>
 	<br>
 	<br>
@@ -49,7 +49,3 @@
 			</form>
 		</div>
 
-
-	</div>
-
-</div>

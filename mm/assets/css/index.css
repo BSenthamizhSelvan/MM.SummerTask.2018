@@ -77,7 +77,7 @@ h4 + p{
 }
 .edit-pick{
 	width: 421.71px;
-	height: 360px;
+	height: 310px;
 }
 .btn-info{
 	padding: 5px 20px;
@@ -91,5 +91,11 @@ h4 + p{
 }
 .rec_art{
 	width: 570px;
-	height: 260px;
+	height: 219.18px;
+}
+#swap1{
+	display:block;
+}
+#swap2{
+	display:none;
 }

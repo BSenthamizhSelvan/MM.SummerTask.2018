@@ -15,7 +15,6 @@
 				<p>
 					<?php echo $article['summary']; ?>
 				</p>
-				<a href=""><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment count</a>
 			</div>
 
 		</div>

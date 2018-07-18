@@ -25,14 +25,14 @@
 					</ul>
 					<a href="<?php echo site_url('admin_panel/users'); ?>">Users</a>
 					<a href="<?php echo site_url('admin_panel/poll'); ?>">Poll</a>
+					<a href="<?php echo site_url('admin_panel/question_final'); ?>">Question</a>
+					<a href="<?php echo site_url('admin_panel/forum'); ?>">Forum</a>
 					<a href="#commentsSubmenu" data-toggle="collapse" aria-expanded="false">Comments</a>
 					<ul class="collapse list-unstyled" id="commentsSubmenu">
-						<li><a href="#">Article Comments</a></li>
-						<li><a href="#">Forum Comments</a></li>
-						<li><a href="#">Question Comments</a></li>
+						<li><a href="<?php echo site_url('admin_panel/article_comment'); ?>">Article Comments</a></li>
+						<li><a href="<?php echo site_url('admin_panel/question'); ?>">Ask a Question</a></li>
+						<li><a href="<?php echo site_url('admin_panel/reply'); ?>">Forum Comments</a></li>
 					</ul>
-					<a href="#">Question</a>
-					<a href="#">Forum</a>
 				</li>
 			</ul>
 		</nav>

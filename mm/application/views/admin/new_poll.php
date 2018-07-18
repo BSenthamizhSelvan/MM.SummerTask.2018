@@ -1,7 +1,7 @@
 <div class="container-fluid">
 
 
-	<button type="button" class="btn btn-warning btn-small"><a href="<?php echo site_url('Admin_panel/poll'); ?>">Edit Existing poll</a></button>
+	<a href="<?php echo site_url('Admin_panel/poll'); ?>"><button type="button" class="btn btn-warning btn-small">Edit Existing poll</button></a>
 	<br>
 	<br>
 	<br>

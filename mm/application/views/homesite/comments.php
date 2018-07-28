@@ -2,6 +2,16 @@
 
 	<div class="col-sm-8 col-xs-12">
 
+		<div class="col-xs-12">
+			<?php 
+			if(!empty($success_msg)){
+				echo '<div class="alert alert-success">'.$success_msg.'</div>';
+			}elseif(!empty($error_msg)){
+				echo '<div class="alert alert-danger">'.$error_msg.'</div>';
+			}
+			?>
+		</div>
+
 		<h4>COMMENTS</h4>
 		<div>
 			<?php 

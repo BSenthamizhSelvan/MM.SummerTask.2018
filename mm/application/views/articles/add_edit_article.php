@@ -19,7 +19,7 @@
         <div class="panel-body">
 
           <form method="post" action="" class="form" enctype="multipart/form-data">
-            
+
             <div class="form-group">
               <label for="title">Title</label>
               <input type="text" class="form-control" name="title" placeholder="Enter title" value="<?php echo !empty($article['title'])?$article['title']:''; ?>">
@@ -47,21 +47,24 @@
                 <option><?php echo !empty($article['ctg'])?$article['ctg']:'Select Category'; ?></option>
                 <option value="Interview">Interview</option>
                 <option value="Forum">Forum</option>
-                <option value="Ask a Question">Ask a Question</option>
                 <option value="Featured">Featured</option>
-                <option value="Pool Analysis">Pool Analysis</option>
               </select>
               <?php echo form_error('Category','<p class="help-block text-danger">','</p>'); ?>
 
               &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
 
-              <label for="reptr_name">Writer Name : </label>
+              <label for="reptr_name">Author Name : </label>
               <select name="reptr_name" placeholder="Select Reporter" value="">
                 <option><?php echo !empty($article['reptr_name'])?$article['reptr_name']:'Select Writer'; ?></option>
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="D">D</option>
+                <?php 
+                foreach ($users as $user) { 
+                  if($user['privilege'])
+                  {
+                    ?> <option> <?php echo $user['username']; ?> </option> <?php
+                  } 
+                }
+
+                ?>
               </select>
               <?php echo form_error('Reporter Name','<p class="help-block text-danger">','</p>'); ?>
 

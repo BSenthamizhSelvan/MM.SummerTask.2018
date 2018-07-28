@@ -17,6 +17,15 @@ class Users extends CI_Controller
         if (($this->session->userdata('isloggedin'))) {
             redirect(site_url('home'));
         }
+
+        if($this->input->post('check'))
+        {
+            $this->form_validation->set_rules('search', 'Search', 'required');
+            $search=$this->input->post('search');
+            redirect('home/search/'.$search);
+
+        }
+
         
         $userdata = array();
         $data['title'] = 'Registration';
@@ -58,6 +67,14 @@ class Users extends CI_Controller
         $data = array();
         if (($this->session->userdata('isloggedin'))) {
             redirect(site_url('home'));
+        }
+
+        if($this->input->post('check'))
+        {
+            $this->form_validation->set_rules('search', 'Search', 'required');
+            $search=$this->input->post('search');
+            redirect('home/search/'.$search);
+
         }
 
 

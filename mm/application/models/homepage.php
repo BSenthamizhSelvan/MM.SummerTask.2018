@@ -6,8 +6,8 @@ class Homepage extends CI_Model{
 	public function editors_pick()
 	{
 		$this->db->order_by('views', 'DESC');
-		$query = $this->db->limit(1)->get('articles');
-		return $query->row_array();
+		$query = $this->db->limit(3)->get('articles');
+		return $query->result_array();
 	}
 
 	public function latest_articles()
@@ -73,7 +73,8 @@ class Homepage extends CI_Model{
 
     public function get_comments($id)
     {
-            $query = $this->db->get_where('article_comments', array('article_id','approved' => $id,'1'));
+            $query = $this->db->where(array('approved' => '1'));
+            $query = $this->db->get_where('article_comments', array('article_id' => $id));
             return $query->result_array();
     }
 
@@ -96,6 +97,27 @@ class Homepage extends CI_Model{
     {
             $query = $this->db->get_where('question', array('id' => $id));
             return $query->row_array();
+    }
+
+    public function getctg($id){
+
+        $query = $this->db->get_where('articles', array('ctg' => $id));
+        return $query->result_array();
+    }
+
+    public function search($query){
+
+        $this->db->select('*');
+        $this->db->from('articles');
+        if($query!='')
+        {
+            $this->db->like('title',$query);
+            $this->db->or_like('content',$query);
+            $this->db->or_like('summary',$query);
+        }
+        $this->db->order_by('id','DESC');
+        $rtn = $this->db->get();
+        return $rtn->result_array();
     }
 
 }

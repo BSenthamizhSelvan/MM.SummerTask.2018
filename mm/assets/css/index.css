@@ -75,10 +75,6 @@ h4 + p{
 	font-size: 16px;
 	font-family: sans-serif;
 }
-.edit-pick{
-	width: 421.71px;
-	height: 310px;
-}
 .btn-info{
 	padding: 5px 20px;
 	margin: 0px 10px;
@@ -98,4 +94,66 @@ h4 + p{
 }
 #swap2{
 	display:none;
+}
+#myCarousel2 .carousel-indicators li{
+	border:1px solid #000;
+}
+#myCarousel3 .carousel-indicators li{
+	border:1px solid #000;
+}
+.carousel-indicators{
+	bottom: 0px;
+}
+.carousel-indicators li:hover{
+	background: #006DCC;
+}
+.carousel-indicators .active{
+	background: #006DCC;
+}
+
+.overlay{
+	color: #fff ;
+	font-weight: bold;
+	position: absolute;
+	bottom: 40px;
+	text-align: center;
+	left: 0px;
+	z-index: 10000000;
+	background: rgba(0,0,0,0.3);
+	display: table-cell;	
+	vertical-align: middle;
+	height: 30% !important;
+
+}
+.overlay .datentime .desc{
+	color: #fff;
+	font-weight: bold;	
+}
+.overlay .datentime .desc:hover{
+	color: #006DCC;
+}
+.overlay h1{
+	font-size: 40px;
+	font-weight: 700;
+	margin: 0px 70px 30px;
+}
+.overlay p{
+	margin: 10px 0px;
+}
+.item{
+	display: table;
+}
+.carousel-control{
+	top: 50%;
+	z-index: 1000;
+	background: none !important;
+}
+.image-slider{
+	margin-bottom: 20px !important;
+
+}
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+	display: block;
+	width: 421.71px;
+	height: 310px;
 }

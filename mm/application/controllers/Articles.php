@@ -6,6 +6,7 @@ class Articles extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('article');
+        $this->load->model('admin');
 	}
 
 	public function index() {
@@ -135,6 +136,7 @@ public function add(){
 
     $data['post'] = $articleData;
     $data['title'] = 'New Article';
+    $data['users'] = $this->admin->getusers();
     $data['action'] = 'Add';
 
     $this->load->view('admin_common/head', $data);
@@ -212,6 +214,7 @@ public function edit($id){
 
     $data['article'] = $articleData;
     $data['title'] = 'Edit Article';
+    $data['users'] = $this->admin->getusers();
     $data['action'] = 'Edit';
 
     $this->load->view('admin_common/head', $data);

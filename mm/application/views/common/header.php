@@ -26,11 +26,11 @@
 							<li><a id="PERSONAL_PROFILE" href="<?php echo site_url('users/register'); ?>">SIGNUP</a></li>
 						<?php } ?>
 					</ul>
-					<form class="navbar-form navbar-right" role="search">
+					<form class="navbar-form navbar-right" role="search" method="post" action="">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search">
+							<input type="text" class="form-control" placeholder="Search" name="search">
 						</div>
-						<button type="submit" class="btn btn-default btn-search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+						<input type="submit" name="check" class="btn btn-default btn-search" value="Submit">
 					</form>
 				</div>
 			</nav>
@@ -51,6 +51,9 @@
 			<div id="navbarCollapse1" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li><a id="PERSONAL_PROFILE" href="<?php echo site_url(); ?>">HOME</a></li>
+					<li><a id="PERSONAL_PROFILE" href="<?php echo site_url('home/category/'.'Interview'); ?>">INTERVIEW</a></li>
+					<li><a id="PERSONAL_PROFILE" href="<?php echo site_url('home/category/'.'Forum'); ?>">FORUM</a></li>
+					<li><a id="PERSONAL_PROFILE" href="<?php echo site_url('home/category/'.'Featured'); ?>">FEATURED</a></li>
 				</ul>
 			</div>
 		</nav>

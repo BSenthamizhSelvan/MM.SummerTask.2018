@@ -22,6 +22,14 @@ class forum extends CI_Controller {
 			$this->session->unset_userdata('error_msg');
 		}
 
+		if($this->input->post('check'))
+		{
+			$this->form_validation->set_rules('search', 'Search', 'required');
+			$search=$this->input->post('search');
+			redirect('home/search/'.$search);
+
+		}
+
 		$data['forum'] = $this->forum_model->getforum();
 		$data['user'] = $this->forum_model->getuser();
 		$data['title'] = 'Forum';
@@ -39,6 +47,14 @@ class forum extends CI_Controller {
 
 		$data = array();
 		$thread = array();
+
+		if($this->input->post('check'))
+		{
+			$this->form_validation->set_rules('search', 'Search', 'required');
+			$search=$this->input->post('search');
+			redirect('home/search/'.$search);
+
+		}
 
 		if($this->input->post('submit'))
 		{
@@ -68,7 +84,6 @@ class forum extends CI_Controller {
 					'last_date' => date('Y-m-d H:i:s')
 				);
 			}
-
 			if($this->form_validation->run() == true)
 			{
 
@@ -106,6 +121,14 @@ class forum extends CI_Controller {
 		$data = array();
 		$thread = $this->forum_model->getforum($id);
 		$info = $this->forum_model->info($id);
+
+		if($this->input->post('check'))
+		{
+			$this->form_validation->set_rules('search', 'Search', 'required');
+			$search=$this->input->post('search');
+			redirect('home/search/'.$search);
+
+		}
 
 		if($this->session->userdata('success_msg')){
 			$data['success_msg'] = $this->session->userdata('success_msg');

@@ -227,7 +227,26 @@ class Admin_panel extends CI_Controller {
 			}
 		}
 		
-		$this->session->set_userdata('privilege',$user['privilege']);
+		redirect('admin_panel/users');
+	}
+
+	public function author($id)
+	{
+
+		if($id){
+
+			$user = $this->admin->getusers($id);
+
+			$user['privilege']='2';
+
+			$update=$this->admin->user_update($user,$id);
+
+			if($update){
+				$this->session->set_userdata('success_msg', 'Author Access granted');
+			}else{
+				$this->session->set_userdata('error_msg', 'Some problems occurred, please try again.');
+			}
+		}
 
 		redirect('admin_panel/users');
 	}
@@ -249,8 +268,6 @@ class Admin_panel extends CI_Controller {
 				$this->session->set_userdata('error_msg', 'Some problems occurred, please try again.');
 			}
 		}
-
-		$this->session->set_userdata('privilege',$user['privilege']);
 
 		redirect('admin_panel/users');
 	}

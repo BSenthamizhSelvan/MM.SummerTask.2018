@@ -18,10 +18,11 @@
                     <thead>
                         <tr>
                             <th width="5%">ID</th>
-                            <th width="30%">User Name</th>
+                            <th width="20%">User Name</th>
                             <th width="15%">Admin Access</th>
-                            <th width="20%">Poll Vote Given</th>
-                            <th width="15%">Admin Options</th>
+                            <th width="15%">Author Access</th>
+                            <th width="15%">Poll Vote Given</th>
+                            <th width="15%">Admin/Author Options</th>
                             <th width="15%">Delete User</th>
                         </tr>
                     </thead>
@@ -32,10 +33,20 @@
                                 <td><?php echo $user['username']; ?></td>
                                 <td><?php 
 
-                                if ($user['privilege']){
+                                if ($user['privilege']=='1'){
                                     echo 'Yes' ;
                                 } else{
                                     echo 'No' ;
+                                }
+
+                                ?></td>
+
+                                <td><?php 
+
+                                if ($user['privilege']=='0'){
+                                    echo 'No' ;
+                                } else{
+                                    echo 'Yes' ;
                                 }
 
                                 ?></td>
@@ -53,22 +64,23 @@
                                 <td>
                                     <?php 
 
-                                if (!$user['privilege']){
+                                    if (!$user['privilege']){
+                                        ?>
+
+                                        <a href="<?php echo site_url('admin_panel/admin/'.$user['id']); ?>" class="glyphicon glyphicon-king" onclick="return confirm('Make Admin?')"></a>
+                                        <a href="<?php echo site_url('admin_panel/author/'.$user['id']); ?>" class="glyphicon glyphicon-pencil" onclick="return confirm('Make Author?')"></a>
+
+                                        <?php
+                                    } else{
+
+                                        ?>
+
+                                        <a href="<?php echo site_url('admin_panel/non_admin/'.$user['id']); ?>" class="glyphicon glyphicon-pawn" onclick="return confirm('Remove Admin?')"></a>
+
+                                        <?php
+                                    }
+
                                     ?>
-
-                                    <a href="<?php echo site_url('admin_panel/admin/'.$user['id']); ?>" class="glyphicon glyphicon-king" onclick="return confirm('Make Admin?')"></a>
-
-                                    <?php
-                                } else{
-
-                                    ?>
-
-                                    <a href="<?php echo site_url('admin_panel/non_admin/'.$user['id']); ?>" class="glyphicon glyphicon-pawn" onclick="return confirm('Remove Admin?')"></a>
-
-                                <?php
-                                }
-
-                                ?>
                                 </td>
                                 <td>
                                     <a href="<?php echo site_url('admin_panel/delete_user/'.$user['id']); ?>" class="glyphicon glyphicon-trash" onclick="return confirm('Are you sure to delete?')"></a>

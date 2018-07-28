@@ -25,6 +25,14 @@ class Home extends CI_Controller {
 
 		$this->session->unset_userdata('question');
 
+		if($this->input->post('check'))
+		{
+			$this->form_validation->set_rules('search', 'Search', 'required');
+			$search=$this->input->post('search');
+			redirect('home/search/'.$search);
+
+		}
+
 		$data['articles']=$this->homepage->latest_articles();
 		$data['pick']=$this->homepage->editors_pick();
 		$data['title'] = 'The news as it should be';
@@ -108,6 +116,14 @@ class Home extends CI_Controller {
 
 		$select=$this->homepage->getrow($id);
 
+		if($this->input->post('check'))
+		{
+			$this->form_validation->set_rules('search', 'Search', 'required');
+			$search=$this->input->post('search');
+			redirect('home/search/'.$search);
+
+		}
+
 
 		if (!$this->session->userdata('$id')) 
 		{
@@ -147,7 +163,14 @@ class Home extends CI_Controller {
 
 				$insert = $this->homepage->insert_comment($comment);
 				if($insert){
-					$this->session->set_userdata('success_msg', 'Comment has been added successfully.');
+					if ($this->session->userdata('privilege')) {
+
+						$this->session->set_userdata('success_msg', 'Comment has been added successfully.');
+
+					} else {
+
+						$this->session->set_userdata('success_msg', 'Your comment is awaiting moderation');
+					}
 					redirect('home/article/'.$id);
 				}else{
 					$data['error_msg'] = 'Some problems occurred, please try again.';
@@ -172,6 +195,60 @@ class Home extends CI_Controller {
 		$this->load->view('common/footer');
 	}
 
+	public function search($search)
+	{
+		$data = array();
+		$question = array();
+
+		if($this->input->post('check'))
+		{
+			$this->form_validation->set_rules('search', 'Search', 'required');
+			$search=$this->input->post('search');
+			redirect('home/search/'.$search);
+
+		}
+
+
+		$data['articles']=$this->homepage->latest_articles();
+		$data['check']= $search;
+		$data['search'] = $this->homepage->search($search);
+
+		$data['title'] = $search;
+		$this->load->view('common/head',$data);
+		$this->load->view('css/view',$data);
+		$this->load->view('common/header',$data);
+		$this->load->view('homesite/search',$data);
+		$this->load->view('homesite/latest_articles',$data);
+		$this->load->view('common/footer');
+	}
+
+	public function category($ctg)
+	{
+		$data = array();
+		$question = array();
+
+		$data['articles']=$this->homepage->latest_articles();
+		$data['category'] = $this->homepage->getctg($ctg);
+
+		if($this->input->post('check'))
+		{
+			$this->form_validation->set_rules('search', 'Search', 'required');
+			$search=$this->input->post('search');
+			redirect('home/search/'.$search);
+
+		}
+
+		$data['title'] = $ctg;
+		$data['ctg'] = $ctg;
+
+		$this->load->view('common/head',$data);
+		$this->load->view('css/view',$data);
+		$this->load->view('common/header',$data);
+		$this->load->view('homesite/ctg',$data);
+		$this->load->view('homesite/latest_articles',$data);
+		$this->load->view('common/footer');
+	}
+
 	public function question()
 	{
 		$data = array();
@@ -184,6 +261,14 @@ class Home extends CI_Controller {
 		if($this->session->userdata('error_msg')){
 			$data['error_msg'] = $this->session->userdata('error_msg');
 			$this->session->unset_userdata('error_msg');
+		}
+
+		if($this->input->post('check'))
+		{
+			$this->form_validation->set_rules('search', 'Search', 'required');
+			$search=$this->input->post('search');
+			redirect('home/search/'.$search);
+
 		}
 
 		if ($this->session->userdata('question')) 

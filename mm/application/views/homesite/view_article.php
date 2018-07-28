@@ -8,7 +8,8 @@
 				<h1><?php echo $select['title']; ?></h1>
 
 				<div class="helpers">
-					<?php echo $select['date']. '  |  '.$select['reptr_name']; ?>
+					<span><?php echo $select['date']. '  |  '.$select['reptr_name']; ?></span>
+					<span class="navbar-right"><?php echo $select['ctg']; ?></span>
 				</div>
 				<div>
 					<?php echo $select['content']; ?>
